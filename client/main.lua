@@ -7,7 +7,6 @@ function RetrieveComponents()
     Damage = exports['mythic-base']:FetchComponent('Damage')
     Keybinds = exports['mythic-base']:FetchComponent('Keybinds')
     Animations = exports['mythic-base']:FetchComponent('Animations')
-    Targeting = exports['mythic-base']:FetchComponent('Targeting')
     Interaction = exports['mythic-base']:FetchComponent('Interaction')
     Hud = exports['mythic-base']:FetchComponent('Hud')
     Weapons = exports['mythic-base']:FetchComponent('Weapons')
@@ -39,7 +38,6 @@ AddEventHandler('Core:Shared:Ready', function()
         'Damage',
         'Keybinds',
         'Animations',
-        'Targeting',
         'Interaction',
         'Hud',
         'Weapons',

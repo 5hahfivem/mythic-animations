@@ -6,35 +6,32 @@ function RegisterChairTargets()
     for k, v in ipairs(_sittableChairs) do
         v.id = k
         if v.prop then
-            Targeting:AddObject(v.prop, "chair", {
+            exports.ox_target:addModel(v.prop, {
                 {
-                    text = "Sit",
-                    icon = 'chair', 
-                    event = "Animations:Client:Chair",
+                    label = 'Sit',
+                    icon = 'fas fa-chair',
+                    event = 'Animations:Client:Chair',
                     data = v,
-                    minDist = 2.0,
-                },
-            }, 1.8)
+                    distance = 2.0
+                }
+            })
         elseif v.polyzone then
-            Targeting.Zones:AddBox(
-                string.format("chair-%s", v.id),
-                "chair",
-                v.polyzone.center,
-                v.polyzone.length,
-                v.polyzone.width,
-                v.polyzone.options,
-                {
+            exports.ox_target:addBoxZone({
+                name = string.format("chair-%s", v.id),
+                coords = v.polyzone.center,
+                size = vec3(v.polyzone.length, v.polyzone.width, 2.0),
+                rotation = v.polyzone.options and v.polyzone.options.heading or 0,
+                debug = false,
+                options = {
                     {
-                        text = "Sit",
-                        icon = 'chair', 
-                        event = "Animations:Client:Chair",
+                        label = 'Sit',
+                        icon = 'fas fa-chair',
+                        event = 'Animations:Client:Chair',
                         data = v,
-                        minDist = 2.0,
+                        distance = 2.0
                     }
-                },
-                2.0,
-                true
-            )
+                }
+            })
         end
     end
 
